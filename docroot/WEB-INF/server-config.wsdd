@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="adminPassword" value="admin" />
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="sendXMLDeclaration" value="true" />
+		<parameter name="axis.sendMinimizedElements" value="true" />
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="session" />
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="request" />
+				<parameter name="extension" value=".jwr" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+	<handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder" />
+	<handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper" />
+	<handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler" />
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper" />
+			<handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler" />
+		</requestFlow>
+	</transport>
+	<transport name="local">
+		<responseFlow>
+			<handler type="LocalResponder" />
+		</responseFlow>
+	</transport>
+	<service name="Plugin_EmotionGraph_DictionaryService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:cmp-ns="http://model.emotiongraph.macroscope.ucla.edu" qname="ns:ArrayOf_tns2_DictionarySoap" type="java:edu.ucla.macroscope.emotiongraph.model.DictionarySoap[]" innerType="cmp-ns:DictionarySoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.emotiongraph.macroscope.ucla.edu" qname="ns:DictionarySoap" type="java:edu.ucla.macroscope.emotiongraph.model.DictionarySoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="download" qname="operNS:download" returnQName="downloadReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="id" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:rtns="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:tns2="http://model.emotiongraph.macroscope.ucla.edu" name="get" qname="operNS:get" returnQName="getReturn" returnType="rtns:ArrayOf_tns2_DictionarySoap" returnItemType="tns2:DictionarySoap" soapAction=""> </operation>
+		<operation xmlns:operNS="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:rtns="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:tns2="http://model.emotiongraph.macroscope.ucla.edu" name="get" qname="operNS:get" returnQName="getReturn" returnType="rtns:ArrayOf_tns2_DictionarySoap" returnItemType="tns2:DictionarySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="start" type="tns:int"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="end" type="tns:int"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="download get" />
+		<parameter name="className" value="edu.ucla.macroscope.emotiongraph.service.http.DictionaryServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.emotiongraph.macroscope.ucla.edu,urn:http.service.emotiongraph.macroscope.ucla.edu" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DictionaryServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DictionaryServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_EmotionGraph_DictionaryService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.emotiongraph.macroscope.ucla.edu" />
+	</service>
+	<service name="Plugin_EmotionGraph_JobDocumentResultService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="edu.ucla.macroscope.emotiongraph.service.http.JobDocumentResultServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="JobDocumentResultServiceSoap" />
+		<parameter name="wsdlServiceElement" value="JobDocumentResultServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_EmotionGraph_JobDocumentResultService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.emotiongraph.macroscope.ucla.edu" />
+	</service>
+	<service name="Plugin_EmotionGraph_JobDocumentService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="edu.ucla.macroscope.emotiongraph.service.http.JobDocumentServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="JobDocumentServiceSoap" />
+		<parameter name="wsdlServiceElement" value="JobDocumentServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_EmotionGraph_JobDocumentService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.emotiongraph.macroscope.ucla.edu" />
+	</service>
+	<service name="Plugin_EmotionGraph_JobService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="edu.ucla.macroscope.emotiongraph.service.http.JobServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="JobServiceSoap" />
+		<parameter name="wsdlServiceElement" value="JobServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_EmotionGraph_JobService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.emotiongraph.macroscope.ucla.edu" />
+	</service>
+</deployment>

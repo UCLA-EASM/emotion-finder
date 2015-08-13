@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_EmotionGraph_JobService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="edu.ucla.macroscope.emotiongraph.service.http.JobServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="JobServiceSoap" />
+		<parameter name="wsdlServiceElement" value="JobServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_EmotionGraph_JobService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.emotiongraph.macroscope.ucla.edu" />
+	</service>
+</deployment>

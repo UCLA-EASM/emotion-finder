@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="edu.ucla.macroscope.emotiongraph">
+	<author>dave</author>
+	<namespace>EmotionGraph</namespace>
+	
+	<entity name="Job" local-service="true">
+        <column name="jobId" primary="true" type="long"></column>
+		<column name="name" type="String"></column>
+		<column name="dictionaryId" type="long"></column>
+		<column name="status" type="long"></column>
+
+
+		<!-- PK fields -->
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+	<entity name="JobDocument" local-service="true"
+		remote-service="true">
+        <column name="jobDocumentId" primary="true" type="long"></column>
+		<column name="jobId" type="long"></column>
+		<column name="documentId" type="long"></column>
+
+
+		<!-- PK fields -->
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+	<entity name="JobDocumentResult" local-service="true">
+        <column name="jobDocumentResultId" primary="true" type="long"></column>
+		<column name="jobId" type="long"></column>
+		<column name="documentId" type="long"></column>
+		<column name="lineNo" type="long"></column>
+		<column name="word" type="String"></column>
+		<column name="count" type="long"></column>
+
+
+		<!-- PK fields -->
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+	<entity name="Dictionary" local-service="true">
+        <column name="dictionaryId" primary="true" type="long"></column>
+    	<column name="name" type="String"></column>
+        <column name="language" type="String"></column>
+    	<column name="description" type="String"></column>
+
+
+    	<!-- PK fields -->
+
+    	<!-- Group instance -->
+        <column name="contents" type="Blob"></column>
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="userId" type="long"></column>
+    	<column name="userName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+    </entity>
+	
+
+	
+</service-builder>

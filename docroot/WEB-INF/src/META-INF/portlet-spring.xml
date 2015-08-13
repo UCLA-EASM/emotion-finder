@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="edu.ucla.macroscope.emotiongraph.service.DictionaryLocalService" class="edu.ucla.macroscope.emotiongraph.service.impl.DictionaryLocalServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.DictionaryService" class="edu.ucla.macroscope.emotiongraph.service.impl.DictionaryServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.persistence.DictionaryPersistence" class="edu.ucla.macroscope.emotiongraph.service.persistence.DictionaryPersistenceImpl" parent="basePersistence" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.JobLocalService" class="edu.ucla.macroscope.emotiongraph.service.impl.JobLocalServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.JobService" class="edu.ucla.macroscope.emotiongraph.service.impl.JobServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.persistence.JobPersistence" class="edu.ucla.macroscope.emotiongraph.service.persistence.JobPersistenceImpl" parent="basePersistence" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.JobDocumentLocalService" class="edu.ucla.macroscope.emotiongraph.service.impl.JobDocumentLocalServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.JobDocumentService" class="edu.ucla.macroscope.emotiongraph.service.impl.JobDocumentServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.persistence.JobDocumentPersistence" class="edu.ucla.macroscope.emotiongraph.service.persistence.JobDocumentPersistenceImpl" parent="basePersistence" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.JobDocumentResultLocalService" class="edu.ucla.macroscope.emotiongraph.service.impl.JobDocumentResultLocalServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.JobDocumentResultService" class="edu.ucla.macroscope.emotiongraph.service.impl.JobDocumentResultServiceImpl" />
+	<bean id="edu.ucla.macroscope.emotiongraph.service.persistence.JobDocumentResultPersistence" class="edu.ucla.macroscope.emotiongraph.service.persistence.JobDocumentResultPersistenceImpl" parent="basePersistence" />
+</beans>

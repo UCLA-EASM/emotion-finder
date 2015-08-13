@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_EmotionGraph_DictionaryService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:cmp-ns="http://model.emotiongraph.macroscope.ucla.edu" qname="ns:ArrayOf_tns2_DictionarySoap" type="java:edu.ucla.macroscope.emotiongraph.model.DictionarySoap[]" innerType="cmp-ns:DictionarySoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.emotiongraph.macroscope.ucla.edu" qname="ns:DictionarySoap" type="java:edu.ucla.macroscope.emotiongraph.model.DictionarySoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="download" qname="operNS:download" returnQName="downloadReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="id" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:rtns="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:tns2="http://model.emotiongraph.macroscope.ucla.edu" name="get" qname="operNS:get" returnQName="getReturn" returnType="rtns:ArrayOf_tns2_DictionarySoap" returnItemType="tns2:DictionarySoap" soapAction=""> </operation>
+		<operation xmlns:operNS="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:rtns="urn:http.service.emotiongraph.macroscope.ucla.edu" xmlns:tns2="http://model.emotiongraph.macroscope.ucla.edu" name="get" qname="operNS:get" returnQName="getReturn" returnType="rtns:ArrayOf_tns2_DictionarySoap" returnItemType="tns2:DictionarySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="start" type="tns:int"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="end" type="tns:int"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="download get" />
+		<parameter name="className" value="edu.ucla.macroscope.emotiongraph.service.http.DictionaryServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.emotiongraph.macroscope.ucla.edu,urn:http.service.emotiongraph.macroscope.ucla.edu" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DictionaryServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DictionaryServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_EmotionGraph_DictionaryService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.emotiongraph.macroscope.ucla.edu" />
+	</service>
+</deployment>

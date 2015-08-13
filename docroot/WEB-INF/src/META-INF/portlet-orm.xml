@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="edu.ucla.macroscope.emotiongraph.model.impl.DictionaryModelImpl">
+		<attributes>
+			<id name="dictionaryId" />
+			<basic name="name" />
+			<basic name="language" />
+			<basic name="description" />
+			<basic name="contents" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="edu.ucla.macroscope.emotiongraph.model.impl.JobModelImpl">
+		<attributes>
+			<id name="jobId" />
+			<basic name="name" />
+			<basic name="dictionaryId" />
+			<basic name="status" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="edu.ucla.macroscope.emotiongraph.model.impl.JobDocumentModelImpl">
+		<attributes>
+			<id name="jobDocumentId" />
+			<basic name="jobId" />
+			<basic name="documentId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="edu.ucla.macroscope.emotiongraph.model.impl.JobDocumentResultModelImpl">
+		<attributes>
+			<id name="jobDocumentResultId" />
+			<basic name="jobId" />
+			<basic name="documentId" />
+			<basic name="lineNo" />
+			<basic name="word" />
+			<basic name="count" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="edu.ucla.macroscope.emotiongraph.model.impl.DictionaryImpl" name="Dictionary">
+		<table name="EmotionGraph_Dictionary" />
+		<attributes />
+	</entity>
+	<entity class="edu.ucla.macroscope.emotiongraph.model.impl.JobImpl" name="Job">
+		<table name="EmotionGraph_Job" />
+		<attributes />
+	</entity>
+	<entity class="edu.ucla.macroscope.emotiongraph.model.impl.JobDocumentImpl" name="JobDocument">
+		<table name="EmotionGraph_JobDocument" />
+		<attributes />
+	</entity>
+	<entity class="edu.ucla.macroscope.emotiongraph.model.impl.JobDocumentResultImpl" name="JobDocumentResult">
+		<table name="EmotionGraph_JobDocumentResult" />
+		<attributes />
+	</entity>
+</entity-mappings>

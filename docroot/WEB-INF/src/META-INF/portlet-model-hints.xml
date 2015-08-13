@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="edu.ucla.macroscope.emotiongraph.model.Dictionary">
+		<field name="dictionaryId" type="long" />
+		<field name="name" type="String" />
+		<field name="language" type="String" />
+		<field name="description" type="String" />
+		<field name="contents" type="Blob" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="edu.ucla.macroscope.emotiongraph.model.Job">
+		<field name="jobId" type="long" />
+		<field name="name" type="String" />
+		<field name="dictionaryId" type="long" />
+		<field name="status" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="edu.ucla.macroscope.emotiongraph.model.JobDocument">
+		<field name="jobDocumentId" type="long" />
+		<field name="jobId" type="long" />
+		<field name="documentId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="edu.ucla.macroscope.emotiongraph.model.JobDocumentResult">
+		<field name="jobDocumentResultId" type="long" />
+		<field name="jobId" type="long" />
+		<field name="documentId" type="long" />
+		<field name="lineNo" type="long" />
+		<field name="word" type="String" />
+		<field name="count" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

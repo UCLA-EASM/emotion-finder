@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="edu.ucla.macroscope.emotiongraph.model.Dictionary" />
+	<import class="edu.ucla.macroscope.emotiongraph.model.Job" />
+	<import class="edu.ucla.macroscope.emotiongraph.model.JobDocument" />
+	<import class="edu.ucla.macroscope.emotiongraph.model.JobDocumentResult" />
+	<class name="edu.ucla.macroscope.emotiongraph.model.impl.DictionaryImpl" table="EmotionGraph_Dictionary">
+		<cache usage="read-write" />
+		<id name="dictionaryId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="language" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one name="contentsBlobModel" access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" class="edu.ucla.macroscope.emotiongraph.model.DictionaryContentsBlobModel" cascade="save-update" outer-join="false" constrained="true" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="edu.ucla.macroscope.emotiongraph.model.DictionaryContentsBlobModel" table="EmotionGraph_Dictionary" lazy="true">
+		<id name="dictionaryId" column="dictionaryId">
+			<generator class="foreign">
+				<param name="property">edu.ucla.macroscope.emotiongraph.model.impl.DictionaryImpl</param>
+			</generator>
+		</id>
+		<property column="contents" name="contentsBlob" type="blob" />
+	</class>
+	<class name="edu.ucla.macroscope.emotiongraph.model.impl.JobImpl" table="EmotionGraph_Job">
+		<cache usage="read-write" />
+		<id name="jobId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dictionaryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="edu.ucla.macroscope.emotiongraph.model.impl.JobDocumentImpl" table="EmotionGraph_JobDocument">
+		<cache usage="read-write" />
+		<id name="jobDocumentId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="jobId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="documentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="edu.ucla.macroscope.emotiongraph.model.impl.JobDocumentResultImpl" table="EmotionGraph_JobDocumentResult">
+		<cache usage="read-write" />
+		<id name="jobDocumentResultId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="jobId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="documentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="lineNo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="word" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="count" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>
